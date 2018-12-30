@@ -12,6 +12,7 @@ const byte HASH_SIZE = 27;
 HashType<char,int> hashRawArray[HASH_SIZE]; 
 HashMap<char,int> hashMap = HashMap<char,int>(hashRawArray , HASH_SIZE );
 int switchNum = 0;
+int wordNum = 0;
 
 void setup() {
   FastLED.addLeds<WS2811, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS); //setting up the FastLED
@@ -47,26 +48,56 @@ void setup() {
 }
 
 void loop() {
-  FastLED.clear();
   switch(switchNum){
     case 0:
-      christmasShift();
-      delay(100);
+      for(int i = 0 ; i < 10 ; i ++ ) {
+        christmasShift();  
+      }
       break;
     case 1:
-      wordTest("happy b day zach");
+      wordTest("waffels ");
       delay(100);
       break;
     case 2:
-      christmas();
-      delay(10000);
+      wordTest("wu tang clan aint nothing to fuck with ");
+      delay(100);
+      break;
+    case 3:
+      wordTest("happy b day zach ");
+      delay(100);
+      break;
+    case 4:
+      wordTest("the street fists ");
+      delay(100);
+      break;
+    case 5:
+      wordTest("run run run run   ");
+      delay(100);
+      break;
+    case 6:
+      wordTest("justice for barb ");
+      delay(100);
+      break;
+    case 7:
+      wordTest("we have to find will ");
+      delay(100);
+      break;
+    case 8:
+      wordTest("demogorgon ");
+      delay(100);
+      break;
+    case 9:
+      for(int i = 0 ; i < 10 ; i ++ ) {
+        christmasShift();  
+      }
       break;
     default:
       christmas();
-      delay(10000);
+//      delay(600000);
+      delay(300000);
       break;
   }
-  switchNum = random(0, 5);
+  switchNum = random(0, 20);
 }
 
 void christmas() {
@@ -119,7 +150,7 @@ void christmasShift() {
     leds[i + 2] = CRGB::Green;
   }
   FastLED.show();
-  delay(800);
+  delay(800);  
 }
 
 void rando() {
